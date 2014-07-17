@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class HeadHunting extends JavaPlugin{
+public class HeadHunting extends JavaPlugin {
 
     private static HeadHunting instance;
 
