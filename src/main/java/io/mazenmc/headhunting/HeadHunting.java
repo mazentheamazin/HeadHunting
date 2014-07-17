@@ -24,7 +24,7 @@ public class HeadHunting extends JavaPlugin {
         setupEconomy();
 
         //Register commands and listeners
-        getCommand("sellhead").setExecutor(new SellHeadCommand());
+        getCommand("sellhead").setExecutor(new HeadSellCommand());
         getServer().getPluginManager().registerEvents(new HHListener(), this);
     }
 
