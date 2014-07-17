@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
-public class HHListener implements Listener{
+public class HHListener implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
