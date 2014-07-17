@@ -13,6 +13,8 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class HHListener implements Listener {
 
+    /*                                                 Listeners                                                     */
+
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         ItemStack head = new ItemStack(Material.SKULL_ITEM);

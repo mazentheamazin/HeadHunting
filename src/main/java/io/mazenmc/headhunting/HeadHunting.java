@@ -12,11 +12,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class HeadHunting extends JavaPlugin {
 
+    /*                                                   Objects                                                     */
     private static HeadHunting instance;
-
     private Economy economy;
 
 
+    /*                                                Override Methods                                               */
+
+    @Override
     public void onEnable() {
         //Set instances
         instance = this;
@@ -29,10 +32,13 @@ public class HeadHunting extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new HHListener(), this);
     }
 
+    @Override
     public void onDisable() {
         //Avoid memory leaks
         instance = null;
     }
+
+    /*                                                   Methods                                                     */
 
     private boolean setupEconomy() {
         RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
@@ -60,6 +66,10 @@ public class HeadHunting extends JavaPlugin {
         }.runTaskAsynchronously(this);
     }
 
+    /**
+     * Singleton
+     * @return Plugin instance
+     */
     static HeadHunting getInstance() {
         return instance;
     }

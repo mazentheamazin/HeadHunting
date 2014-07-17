@@ -10,6 +10,8 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 public class HeadSellCommand implements CommandExecutor {
 
+    /*                                                Override Methods                                               */
+
     @Override
     public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
         if(cs instanceof Player) {
