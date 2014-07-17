@@ -3,8 +3,10 @@ package io.mazenmc.headhunting;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -62,6 +64,8 @@ public class HeadHunting extends JavaPlugin {
                 economy.depositPlayer(player, deductable);
 
                 player.sendMessage(ChatColor.GOLD + "Processed payment! You have sold " + target.getName() + "'s head for " + deductable);
+
+                player.getInventory().remove(Material.SKULL_ITEM);
             }
         }.runTaskAsynchronously(this);
     }

@@ -2,6 +2,7 @@ name: HeadHunting
 author: MazenMC
 version: 1.0
 description: Plugin which would allow you to pickup and sell heads
+main: io.mazenmc.headhunting.HeadHunting
 commands:
   sellhead:
     description: Command which can be ran to sell a head

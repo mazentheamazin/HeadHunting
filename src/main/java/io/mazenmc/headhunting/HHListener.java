@@ -17,7 +17,7 @@ public class HHListener implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-        ItemStack head = new ItemStack(Material.SKULL_ITEM);
+        ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
 
         meta.setOwner(event.getEntity().getName());
@@ -33,7 +33,7 @@ public class HHListener implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
-        if(event.getClickedBlock().getState() instanceof Sign && ChatColor.stripColor(((Sign) event.getClickedBlock().getState()).getLine(0)).equals("[Head]") &&
+        if(event.getClickedBlock() != null && event.getClickedBlock().getState() instanceof Sign && ChatColor.stripColor(((Sign) event.getClickedBlock().getState()).getLine(0)).equals("[Head]") &&
                 event.getItem().getItemMeta() != null && event.getItem().getItemMeta() instanceof SkullMeta) {
             HeadHunting.getInstance().processSale(event.getPlayer(), (SkullMeta) event.getItem().getItemMeta());
         }
