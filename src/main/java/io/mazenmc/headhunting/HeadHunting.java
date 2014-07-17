@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class HeadHunting extends JavaPlugin {
 
@@ -45,7 +46,7 @@ public class HeadHunting extends JavaPlugin {
     public void processSale(final Player player, final SkullMeta meta) {
         player.sendMessage(ChatColor.GRAY + "(Processing Payment)...");
 
-        new Thread() {
+        new BukkitRunnable() {
             @Override
             public void run() {
                 OfflinePlayer target = Bukkit.getOfflinePlayer(meta.getOwner());
@@ -56,7 +57,7 @@ public class HeadHunting extends JavaPlugin {
 
                 player.sendMessage(ChatColor.GOLD + "Processed payment! You have sold " + target.getName() + "'s head for " + deductable);
             }
-        }.start();
+        }.runTaskAsynchronously(this);
     }
 
     static HeadHunting getInstance() {
